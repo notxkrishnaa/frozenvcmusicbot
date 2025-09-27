@@ -392,12 +392,14 @@ async def start_handler(_, message):
 
     buttons = [
         [
-            InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url=updates_channel)
+            InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url=support_group),
-            InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
+            InlineKeyboardButton(f"{updates_text}", url=updates_channel),
+            InlineKeyboardButton(f"{support_text}", url=support_group)
+        ],
+        [
+            InlineKeyboardButton(f"{help_text}", callback_data="show_help")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -447,12 +449,14 @@ async def go_back_callback(_, callback_query):
 
     buttons = [
         [
-            InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true"),
-            InlineKeyboardButton(f"📢 {updates_text}", url=updates_channel)
+            InlineKeyboardButton(f"➕ {add_me_text}", url=f"{BOT_LINK}?startgroup=true")
         ],
         [
-            InlineKeyboardButton(f"💬 {support_text}", url=support_group),
-            InlineKeyboardButton(f"❓ {help_text}", callback_data="show_help")
+            InlineKeyboardButton(f"{updates_text}", url=updates_channel),
+            InlineKeyboardButton(f"{support_text}", url=support_group)
+        ],
+        [
+            InlineKeyboardButton(f"{help_text}", callback_data="show_help")
         ]
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
