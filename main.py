@@ -244,7 +244,7 @@ async def is_api_assistant_in_chat(chat_id):
     except Exception as e:
         print(f"Error checking API assistant in chat: {e}")
         return False
-    
+
 def iso8601_to_seconds(iso_duration):
     try:
         duration = isodate.parse_duration(iso_duration)
@@ -289,7 +289,7 @@ async def fetch_youtube_link(query):
         raise Exception(f"Failed to fetch YouTube link: {str(e)}")
 
 
-    
+
 async def fetch_youtube_link_backup(query):
     if not BACKUP_SEARCH_API_URL:
         raise Exception("Backup Search API URL not configured")
@@ -315,8 +315,8 @@ async def fetch_youtube_link_backup(query):
                 )
     except Exception as e:
         raise Exception(f"Backup Search API error: {e}")
-    
-BOT_NAME = os.environ.get("BOT_NAME", "Frozen Music")
+
+BOT_NAME = os.environ.get("BOT_NAME", "Melodify Songs✨ 🫶")
 BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
@@ -374,8 +374,8 @@ async def start_handler(_, message):
     help_text = to_bold_unicode("Help")
 
     # Fetch from env with fallbacks
-    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/vibeshiftbots")
-    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/Frozensupport1")
+    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/MelodifyClub")
+    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/Melodify_club")
     start_animation = os.getenv(
         "START_ANIMATION",
         "https://frozen-imageapi.lagendplayersyt.workers.dev/file/2e483e17-05cb-45e2-b166-1ea476ce9521.mp4"
@@ -436,8 +436,8 @@ async def go_back_callback(_, callback_query):
     support_text = to_bold_unicode("Support")
     help_text = to_bold_unicode("Help")
 
-    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/vibeshiftbots")
-    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/Frozensupport1")
+    updates_channel = os.getenv("UPDATES_CHANNEL", "https://t.me/MelodifyClub")
+    support_group = os.getenv("SUPPORT_GROUP", "https://t.me/Melodify_club")
 
     caption = (
         f"👋 нєу {user_link} 💠, 🥀\n\n"
@@ -726,7 +726,7 @@ async def process_play_command(message: Message, query: str):
         video_url, title, duration_iso, thumb = result
         if not video_url:
             await processing_message.edit(
-                "❌ Could not find the song. Try another query.\nSupport: @frozensupport1"
+                "❌ Could not find the song. Try another query.\nSupport: @Melodify_club"
             )
             return
 
@@ -892,7 +892,7 @@ async def update_progress_caption(
 
 
 
-LOG_CHAT_ID = "@frozenmusiclogs"
+LOG_CHAT_ID = "@melodifymusiclogs"
 
 async def fallback_local_playback(chat_id: int, message: Message, song_info: dict):
     playback_mode[chat_id] = "local"
@@ -930,7 +930,7 @@ async def fallback_local_playback(chat_id: int, message: Message, song_info: dic
         one_line = _one_line_title(song_info["title"])
         base_caption = (
             "<blockquote>"
-            "<b>🎧 Frozen ✘ Music Streaming</b> (Local Playback)\n\n"
+            "<b>✨𝗠𝗲𝗹𝗼𝗱𝗶𝗳𝘆 ✘ 𝗠𝘂𝘀𝗶𝗰 𝗦𝘁𝗿𝗲𝗮𝗺𝗶𝗻𝗴 🫶</b> (Local Playback)\n\n"
             f"❍ <b>Title:</b> {one_line}\n"
             f"❍ <b>Requested by:</b> {song_info['requester']}"
             "</blockquote>"
@@ -1164,7 +1164,7 @@ async def stop_handler(client, message):
         if "not in a call" in str(e).lower():
             await message.reply("❌ The bot is not currently in a voice chat.")
         else:
-            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @frozensupport1")
+            await message.reply(f"❌ An error occurred while leaving the voice chat: {str(e)}\n\nSupport: @Melodify_Club")
         return
 
     # Clear the song queue
@@ -1289,7 +1289,7 @@ async def reboot_handler(_, message):
                     print(f"Error deleting file for chat {chat_id}: {e}")
             # Clear the queue for this chat.
             chat_containers.pop(chat_id, None)
-        
+
         # Cancel any playback tasks for this chat.
         if chat_id in playback_tasks:
             playback_tasks[chat_id].cancel()
@@ -1314,7 +1314,7 @@ async def reboot_handler(_, message):
 
         await message.reply("♻️ Rebooted for this chat. All data for this chat has been cleared.")
     except Exception as e:
-        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @frozensupport1")
+        await message.reply(f"❌ Failed to reboot for this chat. Error: {str(e)}\n\n support - @Melodify_Club")
 
 
 
@@ -1345,7 +1345,7 @@ async def ping_handler(_, message):
 
         await message.reply(response)
     except Exception as e:
-        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @frozensupport1")
+        await message.reply(f"❌ Failed to execute the command.\nError: {str(e)}\n\nSupport: @Melodify_Club")
 
 
 
@@ -1361,7 +1361,7 @@ async def clear_handler(_, message):
                 os.remove(song.get('file_path', ''))
             except Exception as e:
                 print(f"Error deleting file: {e}")
-        
+
         chat_containers.pop(chat_id)
         await message.reply("🗑️ Cleared the queue.")
     else:
@@ -1565,8 +1565,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     me = bot.get_me()
-    BOT_NAME = me.first_name or "Frozen Music"
-    BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "vcmusiclubot")
+    BOT_NAME = me.first_name or "✨𝗠𝗲𝗹𝗼𝗱𝗶𝗳𝘆 ✘ 𝗠𝘂𝘀𝗶𝗰 𝗦𝘁𝗿𝗲𝗮𝗺𝗶𝗻𝗴 🫶"
+    BOT_USERNAME = me.username or os.getenv("BOT_USERNAME", "MelodifyMusicBot")
     BOT_LINK = f"https://t.me/{BOT_USERNAME}"
 
     logger.info(f"✅ Bot Name: {BOT_NAME!r}")
@@ -1600,6 +1600,8 @@ if __name__ == "__main__":
     bot.stop()
     logger.info("Bot stopped.")
     logger.info("✅ All services are up and running. Bot started successfully.")
+
+
 
 
 
