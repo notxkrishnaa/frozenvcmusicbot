@@ -178,7 +178,7 @@ def safe_handler(func):
             )
             print(error_text)
             # Log the error to support
-            await bot.send_message(5268762773, error_text)
+            await bot.send_message(7171541681, error_text)
     return wrapper
 
 
@@ -317,7 +317,7 @@ async def fetch_youtube_link_backup(query):
         raise Exception(f"Backup Search API error: {e}")
 
 BOT_NAME = os.environ.get("BOT_NAME", "Melodify Songs✨ 🫶")
-BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/vcmusiclubot")
+BOT_LINK = os.environ.get("BOT_LINK", "https://t.me/MelodifyMusicBot")
 
 from pyrogram.errors import UserAlreadyParticipant, RPCError
 
