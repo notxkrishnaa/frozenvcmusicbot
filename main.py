@@ -534,7 +534,7 @@ async def help_admin_callback(_, callback_query):
 @bot.on_callback_query(filters.regex("^help_couple$"))
 async def help_couple_callback(_, callback_query):
     text = (
-        "❤️ *Couple Suggestion Command*\n\n"
+        "❤️ Couple Suggestion Command\n\n"
         ">➜ `/couple`\n"
         "   • Picks two random non-bot members and posts a “couple” image with their names.\n"
         "   • Caches daily so the same pair appears until midnight UTC.\n"
